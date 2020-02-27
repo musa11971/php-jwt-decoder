@@ -3,7 +3,6 @@
 <p align="center">
 <a href="https://packagist.org/packages/musa11971/php-jwt-decoder"><img src="https://img.shields.io/packagist/v/musa11971/php-jwt-decoder.svg?style=flat-square" alt="Latest version on packagist"></a>
 <a href="https://github.com/musa11971/php-jwt-decoder/actions?query=workflow%3Arun-tests+branch%3Amaster"><img src="https://img.shields.io/github/workflow/status/musa11971/php-jwt-decoder/run-tests?label=tests" alt="GitHub Tests Action Status"></a>
-<a href="https://scrutinizer-ci.com/g/musa11971/php-jwt-decoder"><img src="https://img.shields.io/scrutinizer/g/musa11971/php-jwt-decoder.svg?style=flat-square" alt="Quality score"></a>
 <a href="https://packagist.org/packages/musa11971/php-jwt-decoder"><img src="https://img.shields.io/packagist/dt/musa11971/php-jwt-decoder.svg?style=flat-square" alt="Total downloads"></a>
 </p>
 
