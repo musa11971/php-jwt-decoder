@@ -1,6 +1,6 @@
 {
     "name": "musa11971/php-jwt-decoder",
-    "description": "TBA",
+    "description": "A lightweight and flexible library to decode JWTs.",
     "keywords": [
         "php-jwt-decoder"
     ],
@@ -16,6 +16,7 @@
         "php": "^7.3"
     },
     "require-dev": {
+        "firebase/php-jwt": "^5.1",
         "phpunit/phpunit": "^8.2"
     },
     "autoload": {
