@@ -1,0 +1,38 @@
+{
+    "name": "musa11971/php-jwt-decoder",
+    "description": "TBA",
+    "keywords": [
+        "php-jwt-decoder"
+    ],
+    "homepage": "https://github.com/musa11971/php-jwt-decoder",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "musa11971",
+            "email": "mussesemou99@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "musa11971\\JWTDecoder\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "musa11971\\JWTDecoder\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
