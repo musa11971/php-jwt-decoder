@@ -6,38 +6,50 @@ use musa11971\JWTDecoder\Exceptions\ValueNotFoundException;
 
 class JWTPayload
 {
-    /** @var Object $data */
-    private $data;
+    /**
+     * The payload data.
+     *
+     * @var object $_data
+     */
+    private object $_data;
 
-    public function __construct($data)
+    /**
+     * JWTPayload constructor.
+     *
+     * @param object $data The object used to create the payload.
+     */
+    public function __construct(object $data)
     {
-        $this->data = $data;
+        $this->_data = $data;
     }
 
     /**
      * Gets the value with the given key.
      *
-     * @param string $key
+     * @param string $key The key used to get a value from the payload.
+     *
      * @return mixed
-     * @throws null
+     * @throws \musa11971\JWTDecoder\Exceptions\ValueNotFoundException
      */
-    public function get($key)
+    public function get(string $key)
     {
-        if(!$this->has($key))
+        if (!$this->has($key)) {
             throw new ValueNotFoundException("Value with key `$key` not found in the JWT payload.");
+        }
 
-        return $this->data->$key;
+        return $this->_data->$key;
     }
 
     /**
      * Checks whether the payload has a value with the given key.
      *
-     * @param string $key
+     * @param string $key The key used to check whether the payload has a value.
+     *
      * @return bool
      */
-    public function has($key)
+    public function has(string $key): bool
     {
-        return isset($this->data->$key);
+        return isset($this->_data->$key);
     }
 
     /**
@@ -45,8 +57,8 @@ class JWTPayload
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
-        return (array) $this->data;
+        return (array) $this->_data;
     }
 }

@@ -15,14 +15,27 @@
 This lightweight PHP library helps you decode and verify JSON Web Tokens easily.
 
 ```php
+use \musa11971\JWTDecoder\JWTDecoder;
+
+$jwt = 'JSON Web Token';
+$key = 'Key';
+
 $payload = JWTDecoder::token($jwt)
-                ->withKey($publicKey)
+                ->withKey($key)
                 ->decode();
 ```
 
 ## Installation
 
-You can install the library via composer:
+You can download a release and manually include it in your project:
+
+| PHP Version   | JWT Decoder Version   |
+| ------------- |-----------------------|
+| PHP 7.3       | [JWT Decoder 1.0](../../releases/tag/1.0)               |
+| PHP 7.4       | [JWT Decoder 2.0](../../releases/tag/2.0)               |
+| PHP 8.0       | [JWT Decoder 2.0](../../releases/tag/2.0)               |
+
+Alternatively you can install the library via composer:
 
 ```bash
 composer require musa11971/php-jwt-decoder
@@ -32,7 +45,13 @@ composer require musa11971/php-jwt-decoder
 
 ### Basic decoding
 Pass on your JWT and (public) key (e.g. PEM) as strings.
+
 ```php
+use musa11971\JWTDecoder\JWTDecoder;
+
+$jwt = 'JSON Web Token';
+$key = 'Key';
+
 $payload = JWTDecoder::token($jwt)
                 ->withKey($key)
                 ->decode();
@@ -41,7 +60,11 @@ $payload = JWTDecoder::token($jwt)
 ### Decoding with multiple keys
 You may have multiple potential keys, one of which is the correct one for the JWT. This library allows you to simply pass on all the keys, and it will try every key until the signature is verified.  
 Do note that if none of the keys are correct, you will be met with an exception.
+
 ```php
+use musa11971\JWTDecoder\JWTDecoder;
+
+$jwt = 'JSON Web Token';
 $keys = [...]; // Array of keys
 
 $payload = JWTDecoder::token($jwt)
@@ -50,8 +73,14 @@ $payload = JWTDecoder::token($jwt)
 ```
 
 ### Ignoring the token expiry time
-By default, the library will check the token's expiry time ([exp](https://tools.ietf.org/html/rfc7519#section-4.1.4)) if it is present. However, if (for whatever reason) you wish to ignore the expiry time, you can use the following option. 
+By default, the library will check the token's expiry time ([exp](https://tools.ietf.org/html/rfc7519#section-4.1.4)) if it is present. However, if (for whatever reason) you wish to ignore the expiry time, you can use the following option.
+
 ```php
+use musa11971\JWTDecoder\JWTDecoder;
+
+$jwt = 'JSON Web Token';
+$key = 'Key';
+
 $payload = JWTDecoder::token($jwt)
                 ->withKey($key)
                 ->ignoreExpiry()
@@ -60,7 +89,13 @@ $payload = JWTDecoder::token($jwt)
 
 ### Ignoring the token 'not valid before' time
 Similarly to the `ignoreExpiry` option, you can also ignore the 'not valid before' time of the token ([nbf](https://tools.ietf.org/html/rfc7519#section-4.1.5)).
+
 ```php
+use musa11971\JWTDecoder\JWTDecoder;
+
+$jwt = 'JSON Web Token';
+$key = 'Key';
+
 $payload = JWTDecoder::token($jwt)
                 ->withKey($key)
                 ->ignoreNotValidBefore()
